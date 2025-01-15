@@ -1,0 +1,39 @@
+name: Scheduled Scripts
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Runs every 30 seconds
+
+jobs:
+  script1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run script1
+        run: node script1.js
+
+  script2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run script2
+        run: node script2.js
+
+  script3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Run script3
+        run: python script3.py
